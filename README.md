@@ -29,5 +29,7 @@
 로그인을 세션을 통하여 구현할 것이고 게시판의 기본적인 기능을 포함하며 만들어 볼예정입니다.
 
 ## ERD
+![crudERD](https://github.com/user-attachments/assets/2f8e3698-210a-46c7-8f4f-2e5c9e78039d)
+
 
 ## 구현
