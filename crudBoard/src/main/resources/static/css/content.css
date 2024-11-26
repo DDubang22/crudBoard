@@ -1,0 +1,12 @@
+#body-wrapper {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100%;
+    position:relative;
+}
+
+#body-content {
+    margin-top: 50px;
+    padding-bottom: 20px;
+}
