@@ -11,14 +11,17 @@
     <div style="text-align:center">
         <h2>Login</h2>
         <div id="wrapper-form">
-            <form action="/" th:object="${user}" method="post" >
+            <form action="/user/login" th:object="${userLoginDto}" method="post" >
                 <div class="form">
-                    <label class="label" for="id">ID:</label>
-                    <input type="text" id="id" placeholder="아이디를 입력하세요" required />
+                    <label class="label" for="userId">ID</label>
+                    <input type="text" id="userId" th:field="*{userId}" placeholder="아이디를 입력하세요" required />
                 </div>
                 <div class="form">
-                    <label class="label" for="pwd">Pwd:</label>
-                    <input type="password" id="pwd" placeholder="비밀번호를 입력하세요" required />
+                    <label class="label" for="userPwd">Pwd</label>
+                    <input type="password" id="userPwd" th:field="*{userPwd}"  placeholder="비밀번호를 입력하세요" required />
+                </div>
+                <div th:if="${#fields.hasGlobalErrors()}">
+                    <p class="field-error" th:each="err : ${#fields.globalErrors()}" th:text="${err}">글로벌 오류 메시지</p>
                 </div>
                 <div class="form d-grid gap-2">
                     <button class="btn btn-primary" type="submit">로그인</button>
@@ -28,5 +31,4 @@
     </div>
 </div>
 </body>
-
 </html>

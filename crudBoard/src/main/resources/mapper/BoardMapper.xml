@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.crudBoard.user.repository.UserRepository">
+    <insert id="join" parameterType="com.crudBoard.user.domain.User">
+        insert into user (userId, userPwd, userNickname, userBirthday, userEmail, userCreateDate)
+        values (#{userId}, #{userPwd}, #{userNickname}, #{userBirthday}, #{userEmail}, #{userCreatedDate})
+    </insert>
+    <select id="getPwd" parameterType="String" resultType="com.crudBoard.user.domain.User">
+        select * from user where userId = #{userId}
+    </select>
+    <update id="updateUser" parameterType="com.crudBoard.user.dto.UserUpdateDto">
+        update user set userId = #{userId}, userPwd = #{userRePwd}, userNickname = #{userNickname}, userBirthday = #{userBirthday}, userEmail = #{userEmail} where userId = #{userId}
+    </update>
+</mapper>

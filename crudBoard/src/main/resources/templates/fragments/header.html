@@ -10,14 +10,16 @@
                 <a href="/board/list">자유게시판</a>
             </div>
             <div style="float:right; width:40%; text-align:right; padding-right:5px;">
-                <th:block th:if="${session.user} == null">
+                <th:block th:if="${session.loginUser} == null">
                     <a class="btn btn-primary" href="/user/login" role="button">로그인</a>
                     <a class="btn btn-primary" href="/user/join" role="button">계정 생성</a>
                 </th:block>
-                <th:block th:unless="${session.user} == null">
-                    <span th:text="${session.user.userNickname}">님이 접속했습니다.</span> |
-                    <a href="/user/logout">로그아웃</a> |
-                    <a href="/user/userDetail">마이 페이지</a> |
+                <th:block th:unless="${session.loginUser} == null">
+                    <span>[[${session.loginUser.userNickname}]]님이 로그인했습니다!</span> |
+                    <form th:action="@{/user/logout}" method="post">
+                        <button class="btn btn-primary" type="submit">로그아웃</button>
+                    </form>
+                    <a class="btn btn-primary" href="/user/userDetail" role="button">마이페이지</a>
                 </th:block>
             </div>
         </div>
