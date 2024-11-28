@@ -1,4 +1,4 @@
-<img width="450" alt="스크린샷 2024-11-28 오후 9 51 42" src="https://github.com/user-attachments/assets/8530d0b7-d9f2-4379-a451-0b203a285e87"><img width="1212" alt="스크린샷 2024-11-28 오후 9 48 04" src="https://github.com/user-attachments/assets/9d2c7e54-ebee-426c-842a-e7c261ccb1b6"># 게시판 만들기 미니 프로젝트
+# 게시판 만들기 미니 프로젝트
 
 ## 프로젝트 소개
 스프링 부트를 사용하여 세션을 이용한 회원가입이 있고 Create, Read, Update,Delete (CRUD) 기능을 가진 게시판을 구현하는 프로젝트입니다.
