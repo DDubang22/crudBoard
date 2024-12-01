@@ -1,0 +1,17 @@
+.board-writer {
+    width: 93.3%;
+    display: inline-block;
+    text-align:right;
+    text-align: end;
+    font-weight: 600;
+}
+
+.custom-textarea {
+    width: 100%;
+    height: 33em;
+    resize: none;
+}
+
+.btn-group {
+    float: right;
+}

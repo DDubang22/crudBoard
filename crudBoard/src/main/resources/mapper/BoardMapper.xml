@@ -3,15 +3,21 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.crudBoard.user.repository.UserRepository">
-    <insert id="join" parameterType="com.crudBoard.user.domain.User">
-        insert into user (userId, userPwd, userNickname, userBirthday, userEmail, userCreateDate)
-        values (#{userId}, #{userPwd}, #{userNickname}, #{userBirthday}, #{userEmail}, #{userCreatedDate})
+<mapper namespace="com.crudBoard.board.repository.BoardRepository">
+    <insert id="boardPost" parameterType="com.crudBoard.board.domain.Board">
+        insert into board (boardId, boardTitle, boardAuthorId, boardContent, boardCreateDate, boardUpdateDate, boardLikeCount, boardDel, boardView)
+        values (#{boardId}, #{boardTitle}, #{boardAuthorId}, #{boardContent}, #{boardCreateDate}, #{boardUpdateDate}, #{boardLikeCount}, #{boardDel}, #{boardView})
     </insert>
-    <select id="getPwd" parameterType="String" resultType="com.crudBoard.user.domain.User">
-        select * from user where userId = #{userId}
+
+    <select id="boardList" resultType="com.crudBoard.board.domain.Board">
+        select * from board;
     </select>
-    <update id="updateUser" parameterType="com.crudBoard.user.dto.UserUpdateDto">
-        update user set userId = #{userId}, userPwd = #{userRePwd}, userNickname = #{userNickname}, userBirthday = #{userBirthday}, userEmail = #{userEmail} where userId = #{userId}
-    </update>
+
+    <select id="pagingBoard" resultType="com.crudBoard.board.domain.Board">
+        select * from board order by boardCreateDate desc limit 10 offset #{offset};
+    </select>
+
+    <select id="countBoard" resultType="int">
+        select count(*) from board;
+    </select>
 </mapper>

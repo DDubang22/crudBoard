@@ -1,0 +1,19 @@
+.board-write {
+    float : right;
+}
+
+#table-control {
+    margin-top:50px;
+    margin-bottom:50px;
+}
+
+td {
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   max-width:120px;
+}
+
+.pagination {
+    justify-content: center;
+}

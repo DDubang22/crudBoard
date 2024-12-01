@@ -1,0 +1,24 @@
+.board-container {
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: end;
+}
+
+.board-writer {
+    width: 93.3%;
+    display: inline-block;
+    text-align:right;
+}
+
+.custom-textarea {
+    width: 100%;
+    height: 33em;
+    resize: none;
+}
+
+.writer {
+    text-align: end;
+    font-weight: 600;
+
+}
