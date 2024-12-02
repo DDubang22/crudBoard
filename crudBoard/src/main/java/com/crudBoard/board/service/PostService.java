@@ -2,6 +2,7 @@ package com.crudBoard.board.service;
 
 import com.crudBoard.board.domain.Board;
 import com.crudBoard.board.dto.BoardFormDto;
+import com.crudBoard.board.dto.BoardFormUpdateDto;
 import com.crudBoard.board.repository.BoardRepository;
 import com.crudBoard.user.domain.User;
 import com.crudBoard.user.web.SessionConst;
@@ -32,7 +33,12 @@ public class PostService {
 
         Board board = convertToEntity(boardFormDto);
 
-        repository.boardPost(board);
+        repository.postBoard(board);
+    }
+
+    public void update(BoardFormUpdateDto updateDto) {
+        updateDto.setBoardUpdateDate(LocalDateTime.now());
+        repository.updateBoard(updateDto);
     }
 
     private Board convertToEntity(BoardFormDto dto) {

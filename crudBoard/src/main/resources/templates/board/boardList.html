@@ -25,7 +25,9 @@
             <tbody>
                 <tr th:each="board : ${pageDto.content}">
                     <th scope="row" th:text="${board.boardId}"></th>
-                    <td th:text="${board.boardTitle}"></td>
+                    <td>
+                        <a style="color:black;" th:href="@{/board/boardList/{boardId} (boardId=${board.boardId})}" th:text="${board.boardTitle}"></a>
+                    </td>
                     <td th:text="${board.boardContent}"></td>
                     <td th:text="${board.boardAuthorId}"></td>
                     <td th:text="${#temporals.format(board.boardCreateDate, 'yyyy-MM-dd HH:mm')}"></td>

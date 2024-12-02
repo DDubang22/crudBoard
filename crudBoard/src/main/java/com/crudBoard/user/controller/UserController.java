@@ -102,7 +102,7 @@ public class UserController {
         return "user/userDetail";
     }
 
-    //회원정보 생성
+    //회원정보 업데이트
     @PostMapping("/userDetail")
     public String update(@ModelAttribute("userUpdateForm") UserUpdateDto userUpdateForm,BindingResult result, Model model) {
         log.info("userUpdateForm={}",userUpdateForm);

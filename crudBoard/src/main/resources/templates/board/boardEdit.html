@@ -8,13 +8,12 @@
 </head>
 <body>
 <div layout:fragment="content">
-    <div style="width:1000px;">
-        <div>
-            <form action="/board/boardAdd" th:object="${formDto}" method="post">
+    <div style="width: 1000px;">
+            <form th:action="@{/board/boardList/{boardId}/edit (boardId=${updateDto.boardId})}" th:object="${updateDto}" method="post">
                 <!-- 제목 -->
                 <div class="input-group mb-3">
                     <span class="input-group-text">제목</span>
-                    <input type="text" class="form-control" th:field="*{boardTitle}" placeholder="제목을 입력하세요" required/>
+                    <input type="text" class="form-control" id="title" th:field="*{boardTitle}" th:value="${updateDto.boardTitle}" required/>
                 </div>
                 <!-- 본문 -->
                 <div class="input-group mb-3">
@@ -23,18 +22,21 @@
                 <!-- 작성자 -->
                 <div class="input-group mb-3">
                     <span class="input-group-text">작성자</span>
-                    <th:block th:unless="${session.loginUser} == null">
-                        <span class="input-group-text board-writer">[[${session.loginUser.userNickname}]]</span>
-                    </th:block>
+
+                    <span class="input-group-text board-writer">[[${updateDto.boardAuthorId}]]</span>
                 </div>
+                <!-- 뒤로가기 버튼, 발행하기 버튼 -->
                 <div class="btn-group">
-                    <button role="submit" class="btn btn-success">발행하기</button>
+                    <button  type="submit" class="btn btn-success">수정완료</button>
                 </div>
             </form>
-            <div class="btn-group">
-                <a href="/board/boardList" class="btn btn-warning">뒤로가기</a>
-            </div>
-        </div>
+                <div class="btn-group">
+                    <form th:action="@{/board/boardList/{boardId}/delete (boardId=${updateDto.boardId})}" method="post">
+                        <button  type="submit" class="btn btn-danger">삭제하기</button>
+                    </form>
+                </div>
+
+
     </div>
 </div>
 </body>

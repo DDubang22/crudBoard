@@ -6,6 +6,7 @@ import com.crudBoard.board.repository.BoardRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.math.BigInteger;
 import java.util.List;
 
 @Service
@@ -23,4 +24,9 @@ public class PagingService {
 
         return new PageDto(boards, boardCount, page, pageSize);
     }
+
+    public Board detailBoard(BigInteger boardId) {
+        return repository.detailBoard(boardId);
+    }
+
 }

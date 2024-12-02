@@ -4,20 +4,30 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.crudBoard.board.repository.BoardRepository">
-    <insert id="boardPost" parameterType="com.crudBoard.board.domain.Board">
+    <insert id="postBoard" parameterType="com.crudBoard.board.domain.Board">
         insert into board (boardId, boardTitle, boardAuthorId, boardContent, boardCreateDate, boardUpdateDate, boardLikeCount, boardDel, boardView)
         values (#{boardId}, #{boardTitle}, #{boardAuthorId}, #{boardContent}, #{boardCreateDate}, #{boardUpdateDate}, #{boardLikeCount}, #{boardDel}, #{boardView})
     </insert>
 
-    <select id="boardList" resultType="com.crudBoard.board.domain.Board">
-        select * from board;
+    <select id="detailBoard" resultType="com.crudBoard.board.domain.Board" parameterType="BigInteger">
+        select * from board where boardId = #{boardId};
     </select>
 
     <select id="pagingBoard" resultType="com.crudBoard.board.domain.Board">
-        select * from board order by boardCreateDate desc limit 10 offset #{offset};
+        select * from board where boardDel = 0 order by boardCreateDate desc limit 10 offset #{offset};
     </select>
 
     <select id="countBoard" resultType="int">
         select count(*) from board;
     </select>
+
+    <update id="updateBoard" parameterType="com.crudBoard.board.dto.BoardFormUpdateDto">
+        update board set boardId = #{boardId}, boardTitle = #{boardTitle}, boardContent = #{boardContent}, boardUpdateDate = #{boardUpdateDate}
+        where boardId = #{boardId};
+    </update>
+
+    <update id="deleteBoard" parameterType="map">
+        update board set boardDel = #{boardDel} where boardId = #{boardId};
+    </update>
+
 </mapper>

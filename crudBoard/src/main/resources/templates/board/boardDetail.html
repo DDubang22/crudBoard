@@ -12,23 +12,22 @@
         <!-- 제목 -->
         <div class="input-group mb-3">
             <span class="input-group-text">제목</span>
-            <input type="text" class="form-control" placeholder="제목을 입력하세요" />
+            <input type="text" class="form-control" th:value="${findBoard.boardTitle}" readonly/>
         </div>
         <!-- 본문 -->
         <div class="input-group mb-3">
-            <textarea class="form-control custom-textarea" maxlength="3000" readonly></textarea>
+            <textarea class="form-control custom-textarea" maxlength="3000" readonly>[[${findBoard.boardContent}]]</textarea>
         </div>
         <!-- 작성자 -->
         <div class="input-group mb-3">
             <span class="input-group-text">작성자</span>
-            <th:block th:unless="${session.loginUser} == null">
-                <span class="input-group-text board-writer">[[${session.loginUser.userNickname}]]</span>
-            </th:block>
+
+                <span class="input-group-text board-writer">[[${findBoard.boardAuthorId}]]</span>
         </div>
         <!-- 뒤로가기 버튼, 발행하기 버튼 -->
         <div>
             <a href="/board/boardList" role="button" class="btn btn-warning">뒤로가기</a>
-            <a href="/board/boardList" role="button" class="btn btn-success">발행하기</a>
+            <a th:href="@{/board/boardList/{boardId}/edit (boardId=${findBoard.boardId})}" role="button" class="btn btn-success">수정하기</a>
         </div>
     </div>
     

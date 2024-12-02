@@ -17,3 +17,7 @@ td {
 .pagination {
     justify-content: center;
 }
+
+td > a {
+
+}
