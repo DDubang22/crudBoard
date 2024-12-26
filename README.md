@@ -23,7 +23,7 @@ SSR 언어가 아닌 CSR 언어랑 소통하기 위해서는 RestAPI에 대해�
 또한 여러가지 아키텍처에 공부할 예정입니다.
 
 ## 프로젝트 기간
-2024.11.25 ~ 2024.12.02
+2024.11.25 ~ 2024.12.02, 2024.12.26(배포)
 
 ## 참여한 사람
 [@DDubang@2](https://github.com/DDubang22)
@@ -44,6 +44,14 @@ SSR 언어가 아닌 CSR 언어랑 소통하기 위해서는 RestAPI에 대해�
 - Mac
 - Intellij
 - Git
+
+## 배포 환경
+- AWS EC2
+- AWS RDS
+- linux server
+  
+## 모니터링 및 로깅
+- CloudWatch
 
 ## 구상
 로그인을 세션을 통하여 구현할 것이고 게시판의 기본적인 기능을 포함하며 만들어 볼예정입니다.
@@ -120,6 +128,12 @@ DB에 값이 insert되는 것을 확인할 수 있습니다.
 
 ![Dec-02-2024 17-44-12](https://github.com/user-attachments/assets/6fc28a91-2cfe-4a03-80a6-2ac7c0110ef8)
 로그인한 회원과 작성자가 같을 경우는 성공적으로 삭제가 됩니다.
+
+## 서버 시간대
+### nohup java -Duser.timezone=Asia/Seoul -jar [jarFileName].jar &
+nohup 명령어를 이용해 백그라운드에서 작동하게 했습니다. Mysql 서버시간대, Linux 서버 시간대는 __KST 기준__ 정상 작동했지만, 앱 내에서는 정상 작동하지 않았습니다. -Duser.timezone=Asia/Seoul 옵션을 통해 애플리케이션 시간대를 설정했습니다.
+### nohup.out
+nohup.out 파일을 통해 로그를 확인할 수 있습니다
 
 <br>
 <br>
